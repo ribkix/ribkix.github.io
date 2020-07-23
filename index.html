@@ -2,7 +2,7 @@
   <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
     <title>ribkix.tk</title>
     <meta name="description" content="ur mom lesbian">
     <meta name="keywords" content="memes,ribkix,tk,freenom,ribkix.tk,bruh">
@@ -82,6 +82,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
       $(".dropdown-trigger1").dropdown();
+      
+      if (!$("link[href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css']").length){
+        document.body.innerHTML = "";
+        
+        var errortext = document.createElement("H1");
+        errortext.innerHTML = "Error when loading website.";
+        document.body.appendChild(errortext);
+        
+        var errorsub = document.createElement("h3");
+        errorsub.innerHTML = "Couldn't load CSS, try again in a few moments.";
+        document.body.appendChild(errortext);
+      }
     </script>
   </body>
 </html>

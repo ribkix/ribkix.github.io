@@ -86,12 +86,8 @@
       if (!$("link[href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css']").length){
         document.body.innerHTML = "";
         
-        var errortext = document.createElement("H1");
-        errortext.innerHTML = "Error when loading website.";
-        document.body.appendChild(errortext);
-        
-        var errorsub = document.createElement("H3");
-        errorsub.innerHTML = "Couldn't load CSS, try again in a few moments.";
+        var errortext = document.createElement("H2");
+        errortext.innerHTML = "Couldn't load CSS, try again in a few moments.";
         document.body.appendChild(errortext);
       }
     </script>

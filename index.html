@@ -19,7 +19,7 @@
     </ul>
      <nav>
       <div class="navbar-fixed">
-        <div class="nav-wrapper ribdev-color">
+        <div class="nav-wrapper ribdev-bgcolor">
           <a href="https://ribkix.tk" class="brand-logo">ribkix.tk</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="active"><a href="https://ribkix.tk">Home</a></li>
@@ -49,7 +49,7 @@
           </div>
         </div>
       </div>
-      <div class="footer-copyright">
+      <div class="footer-copyright ribdev-bgcolor">
         <div class="container">
         © 42069 Copyright Bruh Inc
         <a class="grey-text text-lighten-4 right" href="https://kanimou.tk">ma homie's website</a>
@@ -65,7 +65,16 @@
   </body>
 </html>
 <style>
-  .ribdev-color {
+  .ribdev-bgcolor {
     background-color:#0270d7 !important;
+  }
+  body {
+    display: flex !important;
+    min-height: 100vh !important;
+    flex-direction: column !important;
+  }
+
+  main {
+    flex: 1 0 auto !important;
   }
 </style>

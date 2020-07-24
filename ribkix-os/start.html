@@ -45,10 +45,10 @@
                 <label for="picture">Profile Picture (Image URL)</label>
               </div>
               
-              <a class="waves-effect waves-light btn-small ribdev-bgcolor" id="preview_picture_btn" href="javascript:preview_picture();">PREVIEW PROFILE PICTURE</a>
+              <a class="waves-effect waves-light btn-small ribdev-bgcolor" id="preview_btn" href="javascript:preview_picture();">PREVIEW PROFILE PICTURE</a>
               
-              <div id="preview_picture" style="display:none;">
-                <img id="preview_picture_img" style="margin-top:5px;margin-bottom:5px;" src="https://i.imgur.com/86j2Wsh.png" width="75px" height="75px">
+              <div id="preview" style="display:none;">
+                <img id="preview_picture" style="margin-top:5px;margin-bottom:5px;" src="https://i.imgur.com/86j2Wsh.png" width="75px" height="75px">
               </div>
               
               <a class="waves-effect waves-light btn-large ribdev-bgcolor" href="#!">CREATE</a>
@@ -69,18 +69,18 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
-      var preview_picture = false;
+      var preview_bool = false;
       
-      function preview_picture(){
-        if (preview_picture = false){
-          document.getElementById("preview_picture_img").src = document.getElementById("picture").value;
-          document.getElementById("preview_picture").style = "display:block;";
-          document.getElementById("preview_picture_btn").innerHTML = "HIDE PREVIEW";
-          preview_picture = true;
-        } else if (preview_picture = true){
-          document.getElementById("preview_picture").style = "display:none;";
-          document.getElementById("preview_picture_btn").innerHTML = "PREVIEW PROFILE PICTURE";
-          preview_picture = false;
+      function preview(){
+        if (preview_bool = false){
+          document.getElementById("preview_picture").src = document.getElementById("picture").value;
+          document.getElementById("preview").style = "display:block;";
+          document.getElementById("preview_btn").innerHTML = "HIDE PREVIEW";
+          preview_bool = true;
+        } else if (preview_bool = true){
+          document.getElementById("preview").style = "display:none;";
+          document.getElementById("preview_btn").innerHTML = "PREVIEW PROFILE PICTURE";
+          preview_bool = false;
         }
       }
       

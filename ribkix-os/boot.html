@@ -68,9 +68,9 @@
       
       function login_user(){
         if (document.getElementById("password").value == password){
-          M.Toast({html:'logging in'});
+          window.location.href = "https://ribkix.tk/ribkix-os/booting?user=user-" + username;
         } else {
-          M.Toast({html:'Wrong password!'});
+          M.toast({html:'Wrong password!'});
         }
       }
       

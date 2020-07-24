@@ -95,6 +95,7 @@
                   var l = document.getElementById("load_user_list");
                   
                   var card = document.createElement("DIV");
+                  card.id = "card-load-user-" + un;
                   card.classList.add("card");
                   card.style = "width:125px;";
                   l.appendChild(card);
@@ -145,7 +146,7 @@
                   a2.classList.add("waves-light");
                   a2.classList.add("btn");
                   a2.classList.add("ribdev-bgcolor");
-                  a2.href = "javascript:delete_user('" + un + "'," + card + ");";
+                  a2.href = "javascript:delete_user('" + un + "'," + card.id + ");";
                   a2.innerHTML = "DELETE";
                   card_action.appendChild(a2);
                 }

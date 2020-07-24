@@ -22,6 +22,17 @@
     </header>
     
     <main>
+      <div id="modal1" class="modal" username_of_user="user">
+        <div class="modal-content">
+          <h4>Are you sure?</h4>
+          <p id="model1_p">Are you sure you want to delete "user"?</p>
+        </div>
+        <div class="modal-footer">
+          <a href="javascript:modal1_yes();" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+          <a href="javascript:modal1_cancel();" class="btn ribdev-bgcolor">Cancel</a>
+        </div>
+      </div>
+      
       <center class="a-bypass">
         <h1>Start Ribkix OS</h1>
         <p>Select what to boot Ribkix OS in:</p>
@@ -70,6 +81,13 @@
                   window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + un;
                 }
                 
+                function delete_user(un){
+                  var modal = document.getElementById("modal1");
+                  modal.username_of_user = un;
+                  document.getElementById("modal1_p").innerHTML = 'Are you sure you want to delete "' + un + '"?'
+                  modal.open();
+                }
+                
                 function add_user_to_load(un,pw,pic,a){
                   var l = document.getElementById("load_user_list");
                   
@@ -112,6 +130,15 @@
                   a.href = "javascript:load_user('" + un + "');";
                   a.innerHTML = "LOAD";
                   card_action.appendChild(a);
+                  
+                  var a2 = document.createElement("A");
+                  a2.classList.add("waves-effect");
+                  a2.classList.add("waves-light");
+                  a2.classList.add("btn");
+                  a2.classList.add("ribdev-bgcolor");
+                  a2.href = "javascript:delete_user('" + un + "');";
+                  a2.innerHTML = "DELETE";
+                  card_action.appendChild(a2);
                 }
                 
                 for (var i=0;i<localStorage.length;i++){
@@ -133,9 +160,15 @@
         document.getElementById("preview").style.display = "none";
       }
       
-      // function load_user(username,password,picture,apps){
-        
-      // }
+      function modal1_yes(){
+        var modal = document.getElementById("modal1");
+        console.log("Delete " + localStorage.getItem("user-" + modal.username_of_user));
+        localStorage.removeItem("user-" + modal.username_of_user);
+      }
+      
+      function modal1_cancel(){
+        document.getElementById("modal1").close();
+      }
       
       function preview(){
         if (document.getElementById("preview").style.display === "none"){

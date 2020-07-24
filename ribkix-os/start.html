@@ -69,16 +69,18 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
+      var preview_picture = false;
+      
       function preview_picture(){
-        if (document.getElementById("preview_picture").style = "display:none;"){
+        if (preview_picture = false){
           document.getElementById("preview_picture_img").src = document.getElementById("picture").value;
           document.getElementById("preview_picture").style = "display:block;";
           document.getElementById("preview_picture_btn").innerHTML = "HIDE PREVIEW";
-        } else {
-          if (document.getElementById("preview_picture").style = "display:block;"){
-            document.getElementById("preview_picture").style = "display:none;";
-            document.getElementById("preview_picture_btn").innerHTML = "PREVIEW PROFILE PICTURE";
-          }
+          preview_picture = true;
+        } else if (preview_picture = true){
+          document.getElementById("preview_picture").style = "display:none;";
+          document.getElementById("preview_picture_btn").innerHTML = "PREVIEW PROFILE PICTURE";
+          preview_picture = false;
         }
       }
       

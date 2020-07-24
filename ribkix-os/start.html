@@ -45,10 +45,10 @@
                 <label for="picture">Profile Picture (Image URL)</label>
               </div>
               
-              <a class="waves-effect waves-light btn-small ribdev-bgcolor" href="javascript:preview_picture();">PREVIEW PROFILE PICTURE</a>
+              <a class="waves-effect waves-light btn-small ribdev-bgcolor" id="preview_picture_btn" href="javascript:preview_picture();">PREVIEW PROFILE PICTURE</a>
               
               <div id="preview_picture" style="display:none;">
-                <img id="preview_picture_img" src="https://i.imgur.com/86j2Wsh.png" width="75px" height="75px">
+                <img id="preview_picture_img" style="margin-top:5px;margin-bottom:5px;" src="https://i.imgur.com/86j2Wsh.png" width="75px" height="75px">
               </div>
               
               <a class="waves-effect waves-light btn-large ribdev-bgcolor" href="#!">CREATE</a>
@@ -73,8 +73,10 @@
         if (document.getElementById("preview_picture").style.display = "none"){
           document.getElementById("preview_picture_img").src = document.getElementById("picture").value;
           document.getElementById("preview_picture").style.display = "block";
-        } else if (document.getElementById("preview_picture").style.display = "block"){
+          document.getElementById("preview_picture_btn").innerHTML = "HIDE PREVIEW";
+        } else if (document.getElementById("preview_picture_img").style.display = "block"){
           document.getElementById("preview_picture").style.display = "none";
+          document.getElementById("preview_picture_btn").innerHTML = "PREVIEW PROFILE PICTURE";
         }
       }
       

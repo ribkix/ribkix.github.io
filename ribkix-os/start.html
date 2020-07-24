@@ -46,7 +46,13 @@
                 <label for="picture">Profile Picture (Image URL)</label>
               </div>
               
-              <a class="waves-effect waves-light btn-large ribdev-bgcolor" href="#!">SUBMIT</a>
+              <a class="waves-effect waves-light btn-small" href="javascript:preview_picture();">PREVIEW PROFILE PICTURE</a>
+              
+              <div id="preview_picture" style="display:none;">
+                <img id="preview_picture_img" src="https://i.imgur.com/86j2Wsh.png" width="75px" height="75px">
+              </div>
+              
+              <a class="waves-effect waves-light btn-large ribdev-bgcolor" href="#!">CREATE</a>
             </div>
           </li>
           <li>
@@ -64,6 +70,15 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
+      function preview_picture(){
+        if (document.getElementById("preview_picture").style.display = "none"){
+          document.getElementById("preview_picture_img").src = document.getElementById("picture")
+          document.getElementById("preview_picture").style.display = "block";
+        } elseif (document.getElementById("preview_picture").style.display = "block"){
+          document.getElementById("preview_picture").style.display = "none";
+        }
+      }
+      
       $(document).ready(function(){
         $('.collapsible').collapsible();
       });

@@ -145,7 +145,7 @@
                   a2.classList.add("waves-light");
                   a2.classList.add("btn");
                   a2.classList.add("ribdev-bgcolor");
-                  a2.href = "javascript:delete_user('" + un + "'," + a2 + ");";
+                  a2.href = "javascript:delete_user('" + un + "'," + card + ");";
                   a2.innerHTML = "DELETE";
                   card_action.appendChild(a2);
                 }
@@ -173,7 +173,7 @@
         var modal = document.getElementById("modal1");
         console.log("Delete " + localStorage.getItem("user-" + modal.username_of_user));
         localStorage.removeItem("user-" + modal.username_of_user);
-        modal.button_from_fired.parentElement.parentElement.parentElement.remove();
+        modal.button_from_fired.remove();
       }
       
       function preview(){

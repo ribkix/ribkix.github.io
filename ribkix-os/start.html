@@ -86,6 +86,7 @@
                   img.src = pic;
                   img.width = "125px";
                   img.height = "125px";
+                  card_image.appendChild(img);
                   
                   var card_stacked = document.createElement("DIV");
                   card_stacked.classList.add("card-stacked");
@@ -108,8 +109,9 @@
                   a.classList.add("waves-effect");
                   a.classList.add("waves-light");
                   a.classList.add("btn");
+                  a.classList.add("ribdev-bgcolor");
                   a.href = "javascript:load_user(" + un + ");";
-                  a.innerHTML = "CREATE";
+                  a.innerHTML = "LOAD";
                   card_action.appendChild(a);
                 }
                 

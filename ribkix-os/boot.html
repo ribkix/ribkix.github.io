@@ -19,17 +19,51 @@
     </header>
     
     <main>
+      <center class="a-bypass">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <br>
+              <br>
+              <br>
+              <h1 style="margin-left:5%;" id="title">Login to "user"</h1>
+            </div>
+            <div class="col">
+              <br>
+              <br>
+              <img src="https://i.imgur.com/86j2Wsh.png" id="picture" width="225px" height="225px">
+            </div>
+          </div>
+        </div>
+        
+        <div class="input-field">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+        
+        <a class="waves-effect waves-light btn-large ribdev-bgcolor">LOGIN</a>
+      </center>
+      
+      <br>
       
     </main>
     
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
-      function load_user(username,password,picture,apps){
-        console.log(username);
-        console.log(password);
-        console.log(picture);
-        console.log(apps);
+      var username;
+      var password;
+      var picture;
+      var apps;
+      
+      function load_user(un,pw,pic,a){
+        username = un;
+        password = pw;
+        picture = pic;
+        apps = a;
+        
+        document.getElementById("title").innerHTML = "Login to " + username;
+        document.getElementById("picture").src = picture;
       }
       
       var url = new URL(window.location.href);

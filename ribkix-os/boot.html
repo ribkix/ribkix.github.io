@@ -41,7 +41,7 @@
           <label for="password">Password</label>
         </div>
         
-        <a class="waves-effect waves-light btn-large ribdev-bgcolor white-fgcolor">LOGIN</a>
+        <a class="waves-effect waves-light btn-large ribdev-bgcolor white-fgcolor" href="javascript:login_user();">LOGIN</a>
       </center>
       
       <br>
@@ -64,6 +64,14 @@
         
         document.getElementById("title").innerHTML = "Login to " + username;
         document.getElementById("picture").src = picture;
+      }
+      
+      function login_user(){
+        if (document.getElementById("password").value == password){
+          M.Toast({html:'logging in'});
+        } else {
+          M.Toast({html:'Wrong password!'});
+        }
       }
       
       var url = new URL(window.location.href);

@@ -27,9 +27,9 @@
           <h4>Are you sure?</h4>
           <p id="modal1_p">Are you sure you want to delete "user"?</p>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer a-bypass">
           <a href="javascript:modal1_yes();" class="modal-close waves-effect waves-green btn-flat">Yes</a>
-          <a class="modal-close btn ribdev-bgcolor">Cancel</a>
+          <a class="modal-close btn ribdev-bgcolor white-fgcolor">Cancel</a>
         </div>
       </div>
       
@@ -81,9 +81,10 @@
                   window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + un;
                 }
                 
-                function delete_user(un){
+                function delete_user(un,btn){
                   var modal = document.getElementById("modal1");
                   modal.username_of_user = un;
+                  modal.button_from_fired = btn;
                   document.getElementById("modal1_p").innerHTML = 'Are you sure you want to delete "' + un + '"?'
                   
                   var instance = M.Modal.init(modal);
@@ -144,7 +145,7 @@
                   a2.classList.add("waves-light");
                   a2.classList.add("btn");
                   a2.classList.add("ribdev-bgcolor");
-                  a2.href = "javascript:delete_user('" + un + "');";
+                  a2.href = "javascript:delete_user('" + un + "," + a2 "');";
                   a2.innerHTML = "DELETE";
                   card_action.appendChild(a2);
                 }
@@ -172,6 +173,9 @@
         var modal = document.getElementById("modal1");
         console.log("Delete " + localStorage.getItem("user-" + modal.username_of_user));
         localStorage.removeItem("user-" + modal.username_of_user);
+        
+        var bff = modal.button_from_fired;
+        bff.parentElement.parentElement.parentElement.remove();
       }
       
       function preview(){

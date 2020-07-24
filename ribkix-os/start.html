@@ -105,9 +105,7 @@
         
         if (!localStorage.getItem("user-" + username)){
           localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "])");
-          M.toast({html:'"' + username + '" has been created!'});
-          
-          window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + username;
+          M.toast({html:'"' + username + '" has been created!',completeCallback:window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + username});
         } else {
           M.toast({html:'"' + username + '" already exists!'})
         }

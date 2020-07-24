@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Boot Ribkix OS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="https://ribkix.tk/ribkix-oc-corona.png">
+  </head>
+  <body>
+    <header class="a-bypass">
+     <nav>
+      <div class="navbar-fixed">
+        <div class="nav-wrapper ribdev-bgcolor">
+          <a class="brand-logo center">Ribkix OS</a>
+        </div>
+      </div>
+    </nav>
+    </header>
+    
+    <main>
+      <center class="a-bypass">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <br>
+              <br>
+              <br>
+              <h1 style="margin-left:5%;" id="title">Login to "user"</h1>
+            </div>
+            <div class="col">
+              <br>
+              <br>
+              <img src="https://i.imgur.com/86j2Wsh.png" id="picture" width="225px" height="225px">
+            </div>
+          </div>
+        </div>
+        
+        <div class="input-field" style="width:40%;">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+        
+        <a class="waves-effect waves-light btn-large ribdev-bgcolor white-fgcolor" href="javascript:login_user();">LOGIN</a>
+      </center>
+      
+      <br>
+      
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      var username;
+      var password;
+      var picture;
+      var apps;
+      
+      function load_user(un,pw,pic,a){
+        username = un;
+        password = pw;
+        picture = pic;
+        apps = a;
+        
+        document.getElementById("title").innerHTML = "Login to " + username;
+        document.getElementById("picture").src = picture;
+      }
+      
+      function login_user(){
+        if (document.getElementById("password").value == password){
+          window.location.href = "https://ribkix.tk/ribkix-os/booting?user=user-" + username;
+        } else {
+          M.toast({html:'Wrong password!'});
+        }
+      }
+      
+      var url = new URL(window.location.href);
+      var user = url.searchParams.get("user");
+      eval(localStorage.getItem(user));
+    </script>
+  </body>
+</html>
+<style>
+  /* CUSTOM CSS */
+  
+  .a-bypass a {
+    text-decoration: none !important;
+  }
+  
+  .a-bypass a:hover {
+    color: white !important;
+    text-decoration: none !important;
+  }
+  
+  /* END */
+    
+  /* COLORS */
+  
+  .ribdev-bgcolor {
+    background-color: #0270d7 !important;
+  }
+  .ribdev-bgcolor-dark {
+    background-color: #00509c !important;
+  }
+  .ribdev-fgcolor {
+    color: #0270d7 !important;
+  }
+  
+  .white-fgcolor {
+    color: white !important;
+  }
+  /* END */
+</style>

@@ -26,8 +26,26 @@
       <center class="a-bypass">
         <h1>Start Ribkix OS</h1>
         <p>Select what to boot Ribkix OS in:</p>
-        <a class="waves-effect waves-light btn-large ribdev-bgcolor" href="#!">NEW USER</a>
-        <a class="waves-effect waves-light btn-large ribdev-bgcolor" href="#!">LOAD USER</a>
+        
+        <ul class="collapsible">
+          <li>
+            <div class="collapsible-header">New User</div>
+            <div class="collapsible-body">
+              <form>
+                <div class="input-field">
+                  <input id="username" type="text" class="validate">
+                  <label for="username">Username</label>
+                </div>
+              </form>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header">Load User</div>
+            <div class="collapsible-body">
+              <p>coming soon boi</p>
+            </div>
+          </li>
+        </ul>
       </center>
       
       <br>
@@ -36,7 +54,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
-        
+      $(document).ready(function(){
+        $('.collapsible').collapsible();
+      });
     </script>
   </body>
 </html>

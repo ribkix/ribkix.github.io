@@ -174,7 +174,7 @@
         var modal = document.getElementById("modal1");
         console.log("Delete " + localStorage.getItem("user-" + modal.username_of_user));
         localStorage.removeItem("user-" + modal.username_of_user);
-        modal.button_from_fired.remove();
+        document.getElementById(modal.button_from_fired).remove();
       }
       
       function preview(){

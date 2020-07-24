@@ -3,7 +3,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <title>Boot Ribkix OS</title>
+    <title>Booting Ribkix OS...</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" href="https://ribkix.tk/ribkix-oc-corona.png">
   </head>
@@ -26,7 +26,7 @@
               <br>
               <br>
               <br>
-              <h1 style="margin-left:5%;" id="title">Login to "user"</h1>
+              <h1 style="margin-left:5%;" id="title">Welcome, user</h1>
             </div>
             <div class="col">
               <br>
@@ -36,12 +36,23 @@
           </div>
         </div>
         
-        <div class="input-field" style="width:40%;">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
         </div>
         
-        <a class="waves-effect waves-light btn-large ribdev-bgcolor white-fgcolor" href="javascript:login_user();">LOGIN</a>
+        <h3>Booting...</h3>
+        
+        <div class="progress">
+          <div class="indeterminate"></div>
+        </div>
       </center>
       
       <br>
@@ -62,16 +73,8 @@
         picture = pic;
         apps = a;
         
-        document.getElementById("title").innerHTML = "Login to " + username;
+        document.getElementById("title").innerHTML = "Welcome, " + username;
         document.getElementById("picture").src = picture;
-      }
-      
-      function login_user(){
-        if (document.getElementById("password").value == password){
-          window.location.href = "https://ribkix.tk/ribkix-os/booting?user=user-" + username;
-        } else {
-          M.toast({html:'Wrong password!'});
-        }
       }
       
       var url = new URL(window.location.href);

@@ -25,7 +25,7 @@
       <div id="modal1" class="modal" username_of_user="user">
         <div class="modal-content">
           <h4>Are you sure?</h4>
-          <p id="model1_p">Are you sure you want to delete "user"?</p>
+          <p id="modal1_p">Are you sure you want to delete "user"?</p>
         </div>
         <div class="modal-footer">
           <a href="javascript:modal1_yes();" class="modal-close waves-effect waves-green btn-flat">Yes</a>
@@ -130,6 +130,9 @@
                   a.href = "javascript:load_user('" + un + "');";
                   a.innerHTML = "LOAD";
                   card_action.appendChild(a);
+                  
+                  var br = document.createElement("BR");
+                  card_action.appendChild(br);
                   
                   var a2 = document.createElement("A");
                   a2.classList.add("waves-effect");

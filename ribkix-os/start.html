@@ -114,7 +114,7 @@
                 }
                 
                 for (var i=0;i<localStorage.length;i++){
-                  eval("add_user_to_load(" + localStorage.key(i).substring(9));
+                  eval("add_user_to_load(" + localStorage.getItem(localStorage.key(i)).substring(10));
                 }
               </script>
             </div>

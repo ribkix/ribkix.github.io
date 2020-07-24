@@ -29,7 +29,7 @@
         </div>
         <div class="modal-footer">
           <a href="javascript:modal1_yes();" class="modal-close waves-effect waves-green btn-flat">Yes</a>
-          <a href="javascript:modal1_cancel();" class="btn ribdev-bgcolor">Cancel</a>
+          <a class="modal-close btn ribdev-bgcolor">Cancel</a>
         </div>
       </div>
       
@@ -82,10 +82,9 @@
                 }
                 
                 function delete_user(un){
-                  var modal = document.getElementById("modal1");
-                  modal.username_of_user = un;
+                  document.getElementById("modal1").username_of_user = un;
                   document.getElementById("modal1_p").innerHTML = 'Are you sure you want to delete "' + un + '"?'
-                  modal.open();
+                  $('#modal1').modal('open'); 
                 }
                 
                 function add_user_to_load(un,pw,pic,a){
@@ -167,10 +166,6 @@
         var modal = document.getElementById("modal1");
         console.log("Delete " + localStorage.getItem("user-" + modal.username_of_user));
         localStorage.removeItem("user-" + modal.username_of_user);
-      }
-      
-      function modal1_cancel(){
-        document.getElementById("modal1").close();
       }
       
       function preview(){

@@ -64,8 +64,59 @@
           </li>
           <li>
             <div class="collapsible-header">Load User</div>
-            <div class="collapsible-body">
-              <p>coming soon boi</p>
+            <div class="collapsible-body" id="load_user_list">
+              <script>
+                function load_user(un){
+                  window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + un;
+                }
+                
+                function add_user_to_load(un,pw,pic,a){
+                  var l = document.getElementById("load_user_list");
+                  
+                  var card = document.createElement("DIV");
+                  card.classList.add("card");
+                  card.style = "width:125px;";
+                  l.appendChild(card);
+                  
+                  var card_image = document.createElement("DIV");
+                  card_image.classList.add("card-image");
+                  card.appendChild(card_image);
+                  
+                  var img = document.createElement("IMG");
+                  img.src = pic;
+                  img.width = "125px";
+                  img.height = "125px";
+                  
+                  var card_stacked = document.createElement("DIV");
+                  card_stacked.classList.add("card-stacked");
+                  card.appendChild(card_stacked);
+                  
+                  var card_content = document.createElement("DIV");
+                  card_content.classList.add("card-content");
+                  card_stacked.appendChild(card_content);
+                  
+                  var h5 = document.createElement("H5");
+                  h5.innerHTML = un;
+                  card_content.appendChild(h5);
+                  
+                  var card_action = document.createElement("DIV");
+                  card_action.classList.add("card-action");
+                  card_action.classList.add("white-fgcolor");
+                  card.appendChild(card_action);
+                  
+                  var a = document.createElement("A");
+                  a.classList.add("waves-effect");
+                  a.classList.add("waves-light");
+                  a.classList.add("btn");
+                  a.href = "javascript:load_user(" + un + ");";
+                  a.innerHTML = "CREATE";
+                  card_action.appendChild(a);
+                }
+                
+                for (var i=0;i<localStorage.length;i++){
+                  eval("add_user_to_load(" + localStorage.key(i).substring(9));
+                }
+              </script>
             </div>
           </li>
         </ul>

@@ -82,9 +82,12 @@
                 }
                 
                 function delete_user(un){
-                  document.getElementById("modal1").username_of_user = un;
+                  var modal = document.getElementById("modal1");
+                  modal.username_of_user = un;
                   document.getElementById("modal1_p").innerHTML = 'Are you sure you want to delete "' + un + '"?'
-                  $('#modal1').modal('open'); 
+                  
+                  var instance = M.Modal.init(modal);
+                  instance.open();
                 }
                 
                 function add_user_to_load(un,pw,pic,a){
@@ -132,6 +135,9 @@
                   
                   var br = document.createElement("BR");
                   card_action.appendChild(br);
+                  
+                  var br2 = document.createElement("BR");
+                  card_action.appendChild(br2);
                   
                   var a2 = document.createElement("A");
                   a2.classList.add("waves-effect");

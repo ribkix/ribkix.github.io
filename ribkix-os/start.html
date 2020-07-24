@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" href="https://ribkix.tk/ribkix-oc-corona.png">
   </head>
-  <body>
+  <body onload="onLoad();">
     <header class="a-bypass">
      <nav>
       <div class="navbar-fixed">
@@ -31,7 +31,7 @@
             <div class="collapsible-header">New User</div>
             <div class="collapsible-body">
               <div class="input-field">
-                <input id="username" type="text" class="validate">
+                <input id="username" type="text" class="validate" value="user">
                 <label for="username">Username</label>
               </div>
               
@@ -47,8 +47,15 @@
               
               <a class="waves-effect waves-light btn-small ribdev-bgcolor" id="preview_btn" href="javascript:preview();">PREVIEW</a>
               
-              <div id="preview" style="display:none;">
-                <img id="preview_picture" style="margin-top:5px;margin-bottom:5px;" src="https://i.imgur.com/86j2Wsh.png" width="75px" height="75px">
+              <div class="card horizontal" id="preview">
+                <div class="card-image">
+                  <img id="preview_image" src="https://i.imgur.com/86j2Wsh.png">
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <h3 id="preview_content">user</h3>
+                  </div>
+                </div>
               </div>
               
               <a class="waves-effect waves-light btn-large ribdev-bgcolor" href="#!">CREATE</a>
@@ -69,18 +76,17 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
-      var preview_bool = false;
+      function onLoad(){
+        document.getElementById("preview").style.display = "none";
+      }
       
       function preview(){
-        if (preview_bool = false){
-          document.getElementById("preview_picture").src = document.getElementById("picture").value;
-          document.getElementById("preview").style = "display:block;";
-          document.getElementById("preview_btn").innerHTML = "HIDE PREVIEW";
-          preview_bool = true;
+        if (document.getElementById("preview").style.display === "none"){
+          document.getElementById("preview_image").src = document.getElementById("picture").value;
+          document.getElementById("preview_content").innerHTML = document.getElementById("username").value;
+          document.getElementById("preview").style.display = "block";
         } else {
-          document.getElementById("preview").style = "display:none;";
-          document.getElementById("preview_btn").innerHTML = "PREVIEW";
-          preview_bool = false;
+          document.getElementById("preview").style.display = "none";
         }
       }
       

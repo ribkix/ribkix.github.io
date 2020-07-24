@@ -22,54 +22,52 @@
     </header>
     
     <main>
-      <center class="a-bypass">
-        <h1>Start Ribkix OS</h1>
-        <p>Select what to boot Ribkix OS in:</p>
-        
-        <ul class="collapsible" style="width:40%;">
-          <li>
-            <div class="collapsible-header">New User</div>
-            <div class="collapsible-body">
-              <div class="input-field">
-                <input id="username" type="text" class="validate" value="user">
-                <label for="username">Username</label>
+      <h1>Start Ribkix OS</h1>
+      <p>Select what to boot Ribkix OS in:</p>
+
+      <ul class="collapsible" style="width:40%;">
+        <li>
+          <div class="collapsible-header">New User</div>
+          <div class="collapsible-body">
+            <div class="input-field">
+              <input id="username" type="text" class="validate" value="user">
+              <label for="username">Username</label>
+            </div>
+
+            <div class="input-field">
+              <input id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+
+            <div class="input-field">
+              <input id="picture" type="text" class="validate" value="https://i.imgur.com/86j2Wsh.png">
+              <label for="picture">Profile Picture (Image URL)</label>
+            </div>
+
+            <a class="waves-effect waves-light btn-small ribdev-bgcolor" id="preview_btn" href="javascript:preview();">CREATE</a>
+
+            <div class="card horizontal" id="preview">
+              <div class="card-image">
+                <img id="preview_image" src="https://i.imgur.com/86j2Wsh.png">
               </div>
-              
-              <div class="input-field">
-                <input id="password" type="password" class="validate">
-                <label for="password">Password</label>
-              </div>
-              
-              <div class="input-field">
-                <input id="picture" type="text" class="validate" value="https://i.imgur.com/86j2Wsh.png">
-                <label for="picture">Profile Picture (Image URL)</label>
-              </div>
-              
-              <a class="waves-effect waves-light btn-small ribdev-bgcolor" id="preview_btn" href="javascript:preview();">CREATE</a>
-              
-              <div class="card horizontal" id="preview">
-                <div class="card-image">
-                  <img id="preview_image" src="https://i.imgur.com/86j2Wsh.png">
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h3 id="preview_content">user</h3>
                 </div>
-                <div class="card-stacked">
-                  <div class="card-content">
-                    <h3 id="preview_content">user</h3>
-                  </div>
-                  <div class="card-action">
-                    <a class="waves-effect waves-light btn">CREATE</a>
-                  </div>
+                <div class="card-action white-fgcolor">
+                  <a class="waves-effect waves-light btn ribdev-bgcolor">CREATE</a>
                 </div>
               </div>
             </div>
-          </li>
-          <li>
-            <div class="collapsible-header">Load User</div>
-            <div class="collapsible-body">
-              <p>coming soon boi</p>
-            </div>
-          </li>
-        </ul>
-      </center>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">Load User</div>
+          <div class="collapsible-body">
+            <p>coming soon boi</p>
+          </div>
+        </li>
+      </ul>
       
       <br>
     </main>
@@ -123,6 +121,10 @@
   }
   .ribdev-fgcolor {
     color: #0270d7 !important;
+  }
+  
+  .white-fgcolor {
+    color: white !important;
   }
   /* END */
 </style>

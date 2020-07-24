@@ -53,6 +53,10 @@
         <div class="progress" style="width:60%;">
           <div class="indeterminate"></div>
         </div>
+        
+        <a class="waves-effect waves-light btn ribdev-bgcolor" href="javascript:done();">FAST BOOT</a>
+        
+        <br>
       </center>
       
       <br>
@@ -77,9 +81,15 @@
         document.getElementById("picture").src = picture;
       }
       
+      function done(){
+        window.location.href = "https://ribkix.tk/ribkix-os?user=user-" + username;
+      }
+      
       var url = new URL(window.location.href);
       var user = url.searchParams.get("user");
       eval(localStorage.getItem(user));
+      
+      setInterval(done,Math.floor(Math.random()*10000)+1);
     </script>
   </body>
 </html>

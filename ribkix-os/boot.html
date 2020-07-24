@@ -1,0 +1,150 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Start Ribkix OS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="https://ribkix.tk/ribkix-oc-corona.png">
+  </head>
+  <body onload="onLoad();">
+    <header class="a-bypass">
+     <nav>
+      <div class="navbar-fixed">
+        <div class="nav-wrapper ribdev-bgcolor">
+          <ul class="left hide-on-med-and-down">
+            <li><a class="waves-effect waves-light btn ribdev-bgcolor-dark" href="https://ribkix.tk/ribkix-os/home"><i class="material-icons">arrow_back</i></a></li>
+          </ul>
+          <a href="https://ribkix.tk" class="brand-logo center">Ribkix OS</a>
+        </div>
+      </div>
+    </nav>
+    </header>
+    
+    <main>
+      <center class="a-bypass">
+        <h1>Start Ribkix OS</h1>
+        <p>Select what to boot Ribkix OS in:</p>
+
+        <ul class="collapsible" style="width:40%;">
+          <li>
+            <div class="collapsible-header">New User</div>
+            <div class="collapsible-body">
+              <div class="input-field">
+                <input id="username" type="text" class="validate" value="user">
+                <label for="username">Username</label>
+              </div>
+
+              <div class="input-field">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+
+              <div class="input-field">
+                <input id="picture" type="text" class="validate" value="https://i.imgur.com/86j2Wsh.png">
+                <label for="picture">Profile Picture (Image URL)</label>
+              </div>
+
+              <a class="waves-effect waves-light btn-small ribdev-bgcolor" id="preview_btn" href="javascript:preview();">CREATE</a>
+         
+              <div class="card" id="preview" style="width:125px;">
+                <div class="card-image">
+                  <img id="preview_image" src="https://i.imgur.com/86j2Wsh.png" width="125px" height="125px">
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <h5 id="preview_content">user</h5>
+                  </div>
+                  <div class="card-action white-fgcolor">
+                    <a class="waves-effect waves-light btn ribdev-bgcolor" href="javascript:create();">CREATE</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header">Load User</div>
+            <div class="collapsible-body">
+              <p>coming soon boi</p>
+            </div>
+          </li>
+        </ul>
+      </center>
+    
+      <br>
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      function onLoad(){
+        document.getElementById("preview").style.display = "none";
+      }
+      
+      // function load_user(username,password,picture,apps){
+        
+      // }
+      
+      function preview(){
+        if (document.getElementById("preview").style.display === "none"){
+          document.getElementById("preview_image").src = document.getElementById("picture").value;
+          document.getElementById("preview_content").innerHTML = document.getElementById("username").value;
+          document.getElementById("preview").style.display = "block";
+          document.getElementById("preview_btn").innerHTML = "CANCEL";
+        } else {
+          document.getElementById("preview").style.display = "none";
+          document.getElementById("preview_btn").innerHTML = "CREATE";
+        }
+      }
+      
+      function create(){
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var picture = document.getElementById("picture").value;
+        var apps = [];
+        
+        if (!localStorage.getItem("user-" + username)){
+          localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "])");
+          M.toast({html:'"' + username + '" has been created!',completeCallback:window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + username});
+        } else {
+          M.toast({html:'"' + username + '" already exists!'})
+        }
+      }
+      
+      $(document).ready(function(){
+        $('.collapsible').collapsible();
+      });
+    </script>
+  </body>
+</html>
+<style>
+  /* CUSTOM CSS */
+  
+  .a-bypass a {
+    text-decoration: none !important;
+  }
+  
+  .a-bypass a:hover {
+    color: white !important;
+    text-decoration: none !important;
+  }
+  
+  /* END */
+    
+  /* COLORS */
+  
+  .ribdev-bgcolor {
+    background-color: #0270d7 !important;
+  }
+  .ribdev-bgcolor-dark {
+    background-color: #00509c !important;
+  }
+  .ribdev-fgcolor {
+    color: #0270d7 !important;
+  }
+  
+  .white-fgcolor {
+    color: white !important;
+  }
+  /* END */
+</style>

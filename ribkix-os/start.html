@@ -97,26 +97,18 @@
         }
       }
       
-      function undo_user_create(){
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-        var picture = document.getElementById("picture").value;
-        var apps = [];
-        
-        localStorage.removeItem("user-" + username);
-        
-        M.Toast.dismissAll();
-      }
-      
       function create(){
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
         var picture = document.getElementById("picture").value;
         var apps = [];
         
-        localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "])");
-        
-        M.toast({html:'<span>"' + username + '" has been created!<button class="btn-flat toast-action" onclick="undo_user_create">Undo</button>'});
+        if (!localStorage.getItem("user-" + username)){
+          localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "])");
+          M.toast({html:'"' + username + '" has been created!'});
+        } else {
+          M.toast({html:'"' + username + '" already exists!'})
+        }
       }
       
       $(document).ready(function(){

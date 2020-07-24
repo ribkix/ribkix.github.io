@@ -45,22 +45,21 @@
                 <label for="picture">Profile Picture (Image URL)</label>
               </div>
               
-              <a class="waves-effect waves-light btn-small ribdev-bgcolor" id="preview_btn" href="javascript:preview();">PREVIEW</a>
+              <a class="waves-effect waves-light btn-small ribdev-bgcolor" id="preview_btn" href="javascript:preview();">CREATE</a>
               
-              <div class="col s12 m7">
-                <div class="card horizontal" id="preview">
-                  <div class="card-image">
-                    <img id="preview_image" src="https://i.imgur.com/86j2Wsh.png">
+              <div class="card horizontal" id="preview">
+                <div class="card-image">
+                  <img id="preview_image" src="https://i.imgur.com/86j2Wsh.png">
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <h3 id="preview_content">user</h3>
                   </div>
-                  <div class="card-stacked">
-                    <div class="card-content">
-                      <h3 id="preview_content">user</h3>
-                    </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light btn">CREATE</a>
                   </div>
                 </div>
               </div>
-              
-              <a class="waves-effect waves-light btn-large ribdev-bgcolor" href="#!">CREATE</a>
             </div>
           </li>
           <li>
@@ -87,8 +86,10 @@
           document.getElementById("preview_image").src = document.getElementById("picture").value;
           document.getElementById("preview_content").innerHTML = document.getElementById("username").value;
           document.getElementById("preview").style.display = "block";
+          document.getElementById("preview_btn").innerHTML = "CANCEL";
         } else {
           document.getElementById("preview").style.display = "none";
+          document.getElementById("preview_btn").innerHTML = "CREATE";
         }
       }
       

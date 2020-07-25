@@ -105,8 +105,8 @@
       
       function settings_apply(){
         var old_sts = settings;
-        settings[0] = '"' + document.getElementById("wallpaper_setting").value + '"';
-        settings[1] = '"' + document.getElementById("accent_color_setting").value + '"';
+        settings[0] = document.getElementById("wallpaper_setting").value;
+        settings[1] = document.getElementById("accent_color_setting").value;
         update_accent();
         update_wallpaper();
         apps_string = "[";

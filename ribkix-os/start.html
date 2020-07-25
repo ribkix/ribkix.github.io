@@ -33,47 +33,19 @@
         </div>
       </div>
       
+      <div class="tap-target" data-target="load-button-target">
+        <div class="tap-target-content">
+          <h5>Load your new user</h5>
+          <p>Press "Load" to load your new user.</p>
+        </div>
+      </div>
+      
       <center class="a-bypass">
         <h1>Start Ribkix OS</h1>
         <p>Select what to boot Ribkix OS in:</p>
 
         <ul class="collapsible" style="width:40%;">
-          <li>
-            <div class="collapsible-header">New User</div>
-            <div class="collapsible-body">
-              <div class="input-field">
-                <input id="username" type="text" class="validate" value="user">
-                <label for="username">Username</label>
-              </div>
-
-              <div class="input-field">
-                <input id="password" type="password" class="validate">
-                <label for="password">Password</label>
-              </div>
-
-              <div class="input-field">
-                <input id="picture" type="text" class="validate" value="https://i.imgur.com/86j2Wsh.png">
-                <label for="picture">Profile Picture (Image URL)</label>
-              </div>
-
-              <a class="waves-effect waves-light btn-small ribdev-bgcolor" id="preview_btn" href="javascript:preview();">CREATE</a>
-         
-              <div class="card" id="preview" style="width:125px;">
-                <div class="card-image">
-                  <img id="preview_image" src="https://i.imgur.com/86j2Wsh.png" width="125px" height="125px">
-                </div>
-                <div class="card-stacked">
-                  <div class="card-content">
-                    <h5 id="preview_content">user</h5>
-                  </div>
-                  <div class="card-action white-fgcolor">
-                    <a class="waves-effect waves-light btn ribdev-bgcolor" href="javascript:create();">CREATE</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
+          <li id="load-user-collapsible">
             <div class="collapsible-header">Load User</div>
             <div class="collapsible-body" id="load_user_list">
               <script>
@@ -157,6 +129,41 @@
               </script>
             </div>
           </li>
+          <li id="new-user-collapsible">
+            <div class="collapsible-header">New User</div>
+            <div class="collapsible-body">
+              <div class="input-field">
+                <input id="username" type="text" class="validate" value="user">
+                <label for="username">Username</label>
+              </div>
+
+              <div class="input-field">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+
+              <div class="input-field">
+                <input id="picture" type="text" class="validate" value="https://i.imgur.com/86j2Wsh.png">
+                <label for="picture">Profile Picture (Image URL)</label>
+              </div>
+
+              <a class="waves-effect waves-light btn-small ribdev-bgcolor" id="preview_btn" href="javascript:preview();">CREATE</a>
+         
+              <div class="card" id="preview" style="width:125px;">
+                <div class="card-image">
+                  <img id="preview_image" src="https://i.imgur.com/86j2Wsh.png" width="125px" height="125px">
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <h5 id="preview_content">user</h5>
+                  </div>
+                  <div class="card-action white-fgcolor">
+                    <a class="waves-effect waves-light btn ribdev-bgcolor" href="javascript:create();">CREATE</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
         </ul>
       </center>
     
@@ -189,15 +196,90 @@
         }
       }
       
+      function add_user_to_load_new(un,pw,pic,a){
+        if (document.getElementById("load-button-target")){
+          document.getElementById("load-button-target").remove;
+        }
+        
+        var l = document.getElementById("load_user_list");
+
+        var card = document.createElement("DIV");
+        card.id = "card-load-user-" + un;
+        card.classList.add("card");
+        card.style = "width:125px;";
+        l.appendChild(card);
+
+        var card_image = document.createElement("DIV");
+        card_image.classList.add("card-image");
+        card.appendChild(card_image);
+
+        var img = document.createElement("IMG");
+        img.src = pic;
+        img.style = "width:125px;height:125px;";
+        card_image.appendChild(img);
+
+        var card_stacked = document.createElement("DIV");
+        card_stacked.classList.add("card-stacked");
+        card.appendChild(card_stacked);
+
+        var card_content = document.createElement("DIV");
+        card_content.classList.add("card-content");
+        card_stacked.appendChild(card_content);
+
+        var h5 = document.createElement("H5");
+        h5.innerHTML = un;
+        card_content.appendChild(h5);
+
+        var card_action = document.createElement("DIV");
+        card_action.classList.add("card-action");
+        card_action.classList.add("white-fgcolor");
+        card.appendChild(card_action);
+
+        var a = document.createElement("A");
+        a.id = "load-user-target";
+        a.classList.add("waves-effect");
+        a.classList.add("waves-light");
+        a.classList.add("btn");
+        a.classList.add("ribdev-bgcolor");
+        a.href = "javascript:load_user('" + un + "');";
+        a.innerHTML = "LOAD";
+        card_action.appendChild(a);
+
+        var br = document.createElement("BR");
+        card_action.appendChild(br);
+
+        var br2 = document.createElement("BR");
+        card_action.appendChild(br2);
+
+        var a2 = document.createElement("A");
+        a2.classList.add("waves-effect");
+        a2.classList.add("waves-light");
+        a2.classList.add("btn");
+        a2.classList.add("ribdev-bgcolor");
+        a2.href = "javascript:delete_user('" + un + "','" + card.id + "');";
+        a2.innerHTML = "DELETE";
+        card_action.appendChild(a2);
+        
+        var instance = M.TapTarget.getInstance(document.querySelector(".tap-target"));
+        instance.open();
+      }
+      
       function create(){
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
         var picture = document.getElementById("picture").value;
         var apps = [];
         
+        // window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + username
+        
         if (!localStorage.getItem("user-" + username)){
           localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "])");
-          M.toast({html:'"' + username + '" has been created!',completeCallback:window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + username});
+          M.toast({html:'"' + username + '" has been created!'});
+          var instance = M.Collapsible.getInstance(document.getElementById("new-user-collapsible"));
+          instance.close();
+          var instance2 = M.Collapsible.getInstance(document.getElementById("load-user-collapsible"));
+          instance2.open();
+          add_user_to_load_new(username,password,picture,apps);
         } else {
           M.toast({html:'"' + username + '" already exists!'})
         }
@@ -205,6 +287,10 @@
       
       $(document).ready(function(){
         $('.collapsible').collapsible();
+      });
+      
+      $(document).ready(function(){
+        $('.tap-target').tapTarget();
       });
     </script>
   </body>

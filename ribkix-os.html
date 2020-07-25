@@ -104,12 +104,11 @@
       }
       
       function settings_apply(){
-        var old_sts = settings;
         settings[0] = document.getElementById("wallpaper_setting").value;
         settings[1] = document.getElementById("accent_color_setting").value;
         update_accent();
         update_wallpaper();
-        localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + "'" + apps.join("','") + "'"; + "],[" + "'" + settings.join("','") + "'"; + "]);");
+        localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',['" + apps.join("','") + "'],['" + settings.join("','") + "']);");
         M.toast({html:"Applied settings!"});
       }
       

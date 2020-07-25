@@ -33,7 +33,7 @@
         </div>
       </div>
       
-      <div class="tap-target" data-target="load-button-target">
+      <div class="tap-target" id="load-button-tap-target" data-target="load-button-target">
         <div class="tap-target-content">
           <h5>Load your new user</h5>
           <p>Press "Load" to load your new user.</p>
@@ -260,7 +260,7 @@
         a2.innerHTML = "DELETE";
         card_action.appendChild(a2);
         
-        var instance = M.TapTarget.getInstance(document.querySelector(".tap-target"));
+        var instance = M.TapTarget.getInstance(document.getElementById("load-button-tap-target"));
         instance.open();
       }
       

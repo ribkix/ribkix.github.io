@@ -109,19 +109,7 @@
         settings[1] = document.getElementById("accent_color_setting").value;
         update_accent();
         update_wallpaper();
-        if (apps != []){
-          apps_string = "[";
-          for (var i=0;i<apps.length;i++){
-            apps_string = apps_string + "'" + apps[i] + "',";
-          }
-          apps_string = apps_string.split(-1) + "]";
-        }
-        sts_string = "[";
-        for (var i=0;i<settings.length;i++){
-          sts_string = sts_string + "'" + settings[i] + "',";
-        }
-        sts_string = sts_string.split(-1) + "]";
-        localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "'," + apps_string + "," + sts_string + ");");
+        localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + "'" + apps.join("','") + "'"; + "],[" + "'" + settings.join("','") + "'"; + "]);");
         M.toast({html:"Applied settings!"});
       }
       

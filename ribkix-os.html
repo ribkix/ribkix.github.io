@@ -39,7 +39,7 @@
             <input id="accent_color_setting" type="text" class="validate" value="#0270d7">
             <label for="accent_color_setting">Accent Color</label>
           </div>
-          <a class="waves-effect waves-light btn-large" href="javascript:settings_apply();">Apply</a>
+          <a class="waves-effect waves-light btn-large ribdev-bgcolor" href="javascript:settings_apply();">Apply</a>
         </div>
         <div id="desktop" class="tabs-item"></div>
       </div>
@@ -89,9 +89,10 @@
       
       function settings_apply(){
         settings[0] = document.getElementById("wallpaper_setting").value;
-        settings[1] = document.getElementById("accen_color_setting").value;
+        settings[1] = document.getElementById("accent_color_setting").value;
         update_accent();
         update_wallpaper();
+        M.toast({html:"Applied settings!"})
       }
       
       var url = new URL(window.location.href);

@@ -50,8 +50,11 @@
             <input id="accent_color_setting" type="text" class="validate" value="#0270d7">
             <label for="accent_color_setting">Accent Color</label>
           </div>
-          <a class="waves-effect waves-light btn-large" id="accent-color" href="javascript:settings_apply();">APPLY</a>
-          <a class="waves-effect waves-light btn-large" id="accent-color" href="javascript:settings_reset();">RESET</a>
+          <center>
+            <a class="waves-effect waves-light btn-large" id="accent-color" href="javascript:settings_apply();">APPLY</a>
+            <a class="waves-effect waves-light btn-large" id="accent-color" href="javascript:settings_reset();">RESET</a>
+          </center>
+          <br>
         </div>
         <div id="desktop" class="tabs-item"></div>
       </div>
@@ -101,10 +104,12 @@
       }
       
       function undo_settings(sts){
+        console.log("start undo");
         settings[0] = sts[0];
         settings[1] = sts[1];
         update_accent();
         update_wallpaper();
+        console.log("end undo");
       }
       
       function settings_apply(){
@@ -113,8 +118,10 @@
         settings[1] = document.getElementById("accent_color_setting").value;
         update_accent();
         update_wallpaper();
+        console.log("start toast");
         var toastHTML = '<span>Applied settings!</span><button class="btn-flat toast-action" onclick="undo_settings([' + old_sts + '])">Undo</button>';
         M.toast({html:toastHTML});
+        console.log("end toast");
       }
       
       function settings_reset(){

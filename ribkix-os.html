@@ -93,7 +93,7 @@
         }
         
         document.getElementById("nav-logo").innerHTML = username;
-        winRef.document.title = username;
+        window.document.title = username;
         document.getElementById("wallpaper_setting").value = settings[0];
         document.getElementById("accent_color_setting").value = settings[1];
         update_accent();
@@ -122,6 +122,7 @@
       }
       
       function modal_settings_reset_yes(){
+        var instance = M.Modal.init(document.getElementById("modal-settings-reset"));
         instance.close();
         document.getElementById("wallpaper_setting").value = "https://i.imgur.com/py0AUXp.jpg";
         document.getElementById("accent_color_setting").value = "#0270d7";

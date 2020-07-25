@@ -173,8 +173,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
+      var load_button_tap_target;
+      
       function onLoad(){
         document.getElementById("preview").style.display = "none";
+        load_button_tap_target = document.getElementById("load-button-tap-target");
       }
       
       function modal1_yes(){
@@ -260,7 +263,7 @@
         a2.innerHTML = "DELETE";
         card_action.appendChild(a2);
         
-        $('.tap-target').tapTarget('open');
+        load_button_tap_target.tapTarget('open');
       }
       
       function create(){

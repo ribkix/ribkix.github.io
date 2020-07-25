@@ -260,8 +260,7 @@
         a2.innerHTML = "DELETE";
         card_action.appendChild(a2);
         
-        var instance = M.TapTarget.getInstance(document.getElementById("load-button-tap-target"));
-        instance.next();
+        $('#load-button-tap-target').tapTarget('open');
       }
       
       function create(){

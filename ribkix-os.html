@@ -113,7 +113,8 @@
         settings[1] = document.getElementById("accent_color_setting").value;
         update_accent();
         update_wallpaper();
-        M.toast({html:'<span>Applied settings!</span><button class="btn-flat toast-action" onclick="undo_settings([' + old_sts + '])">Undo</button>'})
+        var toastHTML = '<span>Applied settings!</span><button class="btn-flat toast-action" onclick="undo_settings([' + old_sts + '])">Undo</button>';
+        M.toast({html:toastHTML});
       }
       
       function settings_reset(){

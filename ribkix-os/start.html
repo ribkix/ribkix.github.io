@@ -42,7 +42,7 @@
             <div class="collapsible-header">Load User</div>
             <div class="collapsible-body" id="load_user_list">
               <div class="tap-target ribdev-bgcolor" id="load-button-tap-target" data-target="load-user-target">
-                <div class="tap-target-content">
+                <div class="tap-target-content white-fgcolor">
                   <h5>Load your new user</h5>
                   <p>Press "Load" to load your new user.</p>
                 </div>
@@ -263,6 +263,7 @@
         a2.innerHTML = "DELETE";
         card_action.appendChild(a2);
         
+        card_action.appendChild(load_button_tap_target);
         var instance = M.TapTarget.getInstance(load_button_tap_target);
         instance.open();
       }

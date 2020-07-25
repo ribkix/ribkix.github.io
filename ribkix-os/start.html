@@ -41,13 +41,6 @@
           <li>
             <div class="collapsible-header">Load User</div>
             <div class="collapsible-body" id="load_user_list">
-              <div class="tap-target ribdev-bgcolor" id="load-button-tap-target" data-target="load-user-target">
-                <div class="tap-target-content white-fgcolor">
-                  <h5>Load your new user</h5>
-                  <p>Press "Load" to load your new user.</p>
-                </div>
-              </div>
-              
               <script>
                 function load_user(un){
                   window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + un;
@@ -173,11 +166,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
-      var load_button_tap_target;
-      
       function onLoad(){
         document.getElementById("preview").style.display = "none";
-        load_button_tap_target = document.getElementById("load-button-tap-target");
       }
       
       function modal1_yes(){
@@ -199,11 +189,7 @@
         }
       }
       
-      function add_user_to_load_new(un,pw,pic,a){
-        if (document.getElementById("load-user-target")){
-          document.getElementById("load-user-target").remove;
-        }
-        
+      function add_user_to_load_new(un,pw,pic,a){        
         var l = document.getElementById("load_user_list");
 
         var card = document.createElement("DIV");
@@ -239,7 +225,6 @@
         card.appendChild(card_action);
 
         var a = document.createElement("A");
-        a.id = "load-user-target";
         a.classList.add("waves-effect");
         a.classList.add("waves-light");
         a.classList.add("btn");
@@ -262,10 +247,6 @@
         a2.href = "javascript:delete_user('" + un + "','" + card.id + "');";
         a2.innerHTML = "DELETE";
         card_action.appendChild(a2);
-        
-        card_action.appendChild(load_button_tap_target);
-        var instance = M.TapTarget.getInstance(load_button_tap_target);
-        instance.open();
       }
       
       function create(){

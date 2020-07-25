@@ -70,12 +70,14 @@
       var password;
       var picture;
       var apps;
+      var settings;
       
-      function load_user(un,pw,pic,a){
+      function load_user(un,pw,pic,a,sts){
         username = un;
         password = pw;
         picture = pic;
         apps = a;
+        settings = sts;
         
         document.getElementById("title").innerHTML = "Welcome, " + username;
         document.getElementById("picture").src = picture;

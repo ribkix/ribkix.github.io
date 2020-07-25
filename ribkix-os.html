@@ -103,22 +103,13 @@
         update_wallpaper();
       }
       
-      function undo_settings(sts){
-//         settings[0] = sts[0];
-//         settings[1] = sts[1];
-//         update_accent();
-//         update_wallpaper();
-        console.log("testmandude");
-      }
-      
       function settings_apply(){
         var old_sts = settings;
         settings[0] = document.getElementById("wallpaper_setting").value;
         settings[1] = document.getElementById("accent_color_setting").value;
         update_accent();
         update_wallpaper();
-        var toastHTML = '<span>Applied settings!</span><button class="btn-flat toast-action" onclick="undo_settings([' + old_sts + '])">Undo</button>';
-        M.toast({html:toastHTML});
+        M.toast({html:"Applied settings!"});
       }
       
       function settings_reset(){

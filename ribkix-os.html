@@ -108,7 +108,11 @@
         settings[1] = document.getElementById("accent_color_setting").value;
         update_accent();
         update_wallpaper();
-        localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',['" + apps.join("','") + "'],['" + settings.join("','") + "']);");
+        if (apps != []){
+          localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',['" + apps.join("','") + "'],['" + settings.join("','") + "']);");
+        } else {
+          localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[],['" + settings.join("','") + "']);");
+        }
         M.toast({html:"Applied settings!"});
       }
       

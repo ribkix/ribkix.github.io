@@ -26,7 +26,7 @@
         </div>
         <div class="modal-footer">
           <a href="javascript:modal_settings_reset_yes();" class="modal-close waves-effect waves-green btn-flat">Yes</a>
-          <a class="modal-close btn ribdev-bgcolor white-fgcolor">Cancel</a>
+          <a class="modal-close btn white-fgcolor" id="accent-color">Cancel</a>
         </div>
       </div>
       
@@ -109,6 +109,7 @@
         settings[1] = document.getElementById("accent_color_setting").value;
         update_accent();
         update_wallpaper();
+        localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps + "],[" + settings + "]);");
         M.toast({html:"Applied settings!"});
       }
       

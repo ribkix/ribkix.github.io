@@ -31,6 +31,15 @@
         </div>
         <div id="settings" class="white-bgcolor z-depth-4 tabs-item">
           <h1>Settings</h1>
+          <div class="input-field col s6">
+            <input id="wallpaper_setting" type="text" class="validate" value="https://i.imgur.com/py0AUXp.jpg">
+            <label for="wallpaper_setting">Wallpaper</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="accent_color_setting" type="text" class="validate" value="#0270d7">
+            <label for="accent_color_setting">Accent Color</label>
+          </div>
+          <a class="waves-effect waves-light btn-large" href="javascript:settings_apply();">Apply</a>
         </div>
         <div id="desktop" class="tabs-item"></div>
       </div>
@@ -56,6 +65,10 @@
         });
       }
       
+      function update_wallpaper(){
+        document.body.style = "background-image: url(" + settings[0] + ");background-repeat:no-repeat;background-size:cover;background-position:center center;";
+      }
+      
       function load_user(un,pw,pic,a,sts){
         username = un;
         password = pw;
@@ -67,9 +80,18 @@
           settings = ["https://i.imgur.com/py0AUXp.jpg","#0270d7"]
         }
         
-        document.body.style = "background-image: url(" + settings[0] + ");background-repeat:no-repeat;background-size:cover;background-position:center center;";
         document.getElementById("nav-logo").innerHTML = username;
+        document.getElementById("wallpaper_setting").value = settings[0];
+        document.getElementById("accent_color_setting").value = settings[1];
         update_accent();
+        update_wallpaper();
+      }
+      
+      function settings_apply(){
+        settings[0] = document.getElementById("wallpaper_setting").value;
+        settings[1] = document.getElementById("accen_color_setting").value;
+        update_accent();
+        update_wallpaper();
       }
       
       var url = new URL(window.location.href);

@@ -54,23 +54,23 @@
       function update_accent(){
         var ac = document.querySelectorAll("#accent-color");
         ac.forEach(function(ac){
-          ac.style = "background-color:" + settings[1] + ";";
+          ac.style = "background-color:" + window.settings[1] + ";";
         });
       }
       
       function load_user(un,pw,pic,a,sts){
-        username = un;
-        password = pw;
-        picture = pic;
-        apps = a;
-        settings = sts;
+        window.username = un;
+        window.password = pw;
+        window.picture = pic;
+        window.apps = a;
+        window.settings = sts;
         
         if (sts = []){
           sts = ["https://i.imgur.com/py0AUXp.jpg","#0270d7"]
         }
         
         document.body.style = "background-image: url(" + sts[0] + ");background-repeat:no-repeat;background-size:cover;background-position:center center;";
-        document.getElementById("nav-logo").innerHTML = username;
+        document.getElementById("nav-logo").innerHTML = window.username;
         update_accent();
       }
       

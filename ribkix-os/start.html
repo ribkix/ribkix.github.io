@@ -33,7 +33,7 @@
         </div>
       </div>
       
-      <div class="tap-target ribdev-bgcolor" id="load-button-tap-target" data-target="load-button-target">
+      <div class="tap-target ribdev-bgcolor" id="load-button-tap-target" data-target="load-user-target">
         <div class="tap-target-content">
           <h5>Load your new user</h5>
           <p>Press "Load" to load your new user.</p>
@@ -200,8 +200,8 @@
       }
       
       function add_user_to_load_new(un,pw,pic,a){
-        if (document.getElementById("load-button-target")){
-          document.getElementById("load-button-target").remove;
+        if (document.getElementById("load-user-target")){
+          document.getElementById("load-user-target").remove;
         }
         
         var l = document.getElementById("load_user_list");

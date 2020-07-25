@@ -3,7 +3,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <title>Booting Ribkix OS...</title>
+    <title>Ribkix OS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" href="https://ribkix.tk/ribkix-oc-corona.png">
   </head>
@@ -93,6 +93,7 @@
         }
         
         document.getElementById("nav-logo").innerHTML = username;
+        winRef.document.title = username;
         document.getElementById("wallpaper_setting").value = settings[0];
         document.getElementById("accent_color_setting").value = settings[1];
         update_accent();

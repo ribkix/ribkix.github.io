@@ -189,7 +189,7 @@
         }
       }
       
-      function add_user_to_load_new(un,pw,pic,a){        
+      function add_user_to_load_new(un,pw,pic,a,sts){        
         var l = document.getElementById("load_user_list");
 
         var card = document.createElement("DIV");
@@ -254,16 +254,17 @@
         var password = document.getElementById("password").value;
         var picture = document.getElementById("picture").value;
         var apps = [];
+        var settings = {};
         
         // window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + username
         
         if (!localStorage.getItem("user-" + username)){
-          localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "])");
+          localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "],{" + settings.toString() + "})");
           M.toast({html:'"' + username + '" has been created!'});
           var instance = M.Collapsible.getInstance(document.querySelector(".collapsible"));
           instance.close(1);
           instance.open(0);
-          add_user_to_load_new(username,password,picture,apps);
+          add_user_to_load_new(username,password,picture,apps,settings);
         } else {
           M.toast({html:'"' + username + '" already exists!'})
         }

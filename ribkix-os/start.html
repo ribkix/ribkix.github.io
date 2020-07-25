@@ -263,7 +263,8 @@
         a2.innerHTML = "DELETE";
         card_action.appendChild(a2);
         
-        load_button_tap_target.tapTarget('open');
+        var instance = M.TapTarget.init(load_button_tap_target);
+        instance.open();
       }
       
       function create(){
@@ -277,7 +278,7 @@
         if (!localStorage.getItem("user-" + username)){
           localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "])");
           M.toast({html:'"' + username + '" has been created!'});
-          var instance = M.Collapsible.getInstance(document.getElementById("user-collapsible"));
+          var instance = M.Collapsible.init(document.getElementById("user-collapsible"));
           instance.close(2);
           instance.open(1);
           add_user_to_load_new(username,password,picture,apps);

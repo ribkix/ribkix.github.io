@@ -11,7 +11,7 @@
     <header class="a-bypass">
      <nav>
       <div class="navbar-fixed">
-        <div class="nav-wrapper" id="accent-color" style="background-color:#0270d7 !important;">
+        <div class="nav-wrapper" id="accent-color">
           <a class="brand-logo center" id="nav-logo">Loading...</a>
         </div>
       </div>
@@ -52,7 +52,7 @@
       var settings;
       
       function update_accent(){
-        var ac = document.getElementById("accent-color");
+        var ac = document.querySelectorAll("#accent-color");
         ac.forEach(function(ac){
           ac.style = "background-color:" + sts[1] + ";";
         });

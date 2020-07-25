@@ -44,8 +44,8 @@
         <h1>Start Ribkix OS</h1>
         <p>Select what to boot Ribkix OS in:</p>
 
-        <ul class="collapsible" style="width:40%;">
-          <li id="load-user-collapsible">
+        <ul id="user-collapsible" class="collapsible" style="width:40%;">
+          <li>
             <div class="collapsible-header">Load User</div>
             <div class="collapsible-body" id="load_user_list">
               <script>
@@ -129,7 +129,7 @@
               </script>
             </div>
           </li>
-          <li id="new-user-collapsible">
+          <li>
             <div class="collapsible-header">New User</div>
             <div class="collapsible-body">
               <div class="input-field">
@@ -275,10 +275,9 @@
         if (!localStorage.getItem("user-" + username)){
           localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "])");
           M.toast({html:'"' + username + '" has been created!'});
-          var instance = M.Collapsible.getInstance(document.getElementById("new-user-collapsible"));
-          instance.close();
-          var instance2 = M.Collapsible.getInstance(document.getElementById("load-user-collapsible"));
-          instance2.open();
+          var instance = M.Collapsible.getInstance(document.getElementById("user-collapsible"));
+          instance.close(2);
+          instance.open(1);
           add_user_to_load_new(username,password,picture,apps);
         } else {
           M.toast({html:'"' + username + '" already exists!'})

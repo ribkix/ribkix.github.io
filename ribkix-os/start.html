@@ -279,8 +279,8 @@
           localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "])");
           M.toast({html:'"' + username + '" has been created!'});
           var instance = M.Collapsible.getInstance(document.querySelector(".collapsible"));
-          instance.close(2);
-          instance.open(1);
+          instance.close(1);
+          instance.open(0);
           add_user_to_load_new(username,password,picture,apps);
         } else {
           M.toast({html:'"' + username + '" already exists!'})

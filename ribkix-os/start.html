@@ -33,7 +33,7 @@
         </div>
       </div>
       
-      <div class="tap-target" id="load-button-tap-target" data-target="load-button-target">
+      <div class="tap-target ribdev-bgcolor" id="load-button-tap-target" data-target="load-button-target">
         <div class="tap-target-content">
           <h5>Load your new user</h5>
           <p>Press "Load" to load your new user.</p>
@@ -278,7 +278,7 @@
         if (!localStorage.getItem("user-" + username)){
           localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "])");
           M.toast({html:'"' + username + '" has been created!'});
-          var instance = M.Collapsible.init(document.getElementById("user-collapsible"));
+          var instance = M.Collapsible.getInstance(document.querySelector(".collapsible"));
           instance.close(2);
           instance.open(1);
           add_user_to_load_new(username,password,picture,apps);

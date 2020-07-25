@@ -19,47 +19,6 @@
     </header>
     
     <main>
-      <center class="a-bypass">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <br>
-              <br>
-              <br>
-              <h1 style="margin-left:5%;" id="title">Welcome, user</h1>
-            </div>
-            <div class="col">
-              <br>
-              <br>
-              <img src="https://i.imgur.com/86j2Wsh.png" id="picture" width="225px" height="225px">
-            </div>
-          </div>
-        </div>
-        
-        <div class="preloader-wrapper big active">
-          <div class="spinner-layer spinner-blue-only">
-            <div class="circle-clipper left">
-              <div class="circle"></div>
-            </div><div class="gap-patch">
-              <div class="circle"></div>
-            </div><div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-          </div>
-        </div>
-        
-        <h3>Booting...</h3>
-        
-        <div class="progress" style="width:60%;">
-          <div class="indeterminate"></div>
-        </div>
-        
-        <a class="waves-effect waves-light btn ribdev-bgcolor" href="javascript:done();">FAST BOOT</a>
-        
-        <br>
-      </center>
-      
-      <br>
       
     </main>
     
@@ -77,8 +36,9 @@
         picture = pic;
         apps = a;
         
-        document.getElementById("title").innerHTML = "Welcome, " + username;
-        document.getElementById("picture").src = picture;
+        // if (apps == []){
+        //   apps = []
+        // }
       }
       
       function done(){

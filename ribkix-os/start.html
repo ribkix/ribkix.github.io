@@ -33,13 +33,6 @@
         </div>
       </div>
       
-      <div class="tap-target ribdev-bgcolor" id="load-button-tap-target" data-target="load-user-target">
-        <div class="tap-target-content">
-          <h5>Load your new user</h5>
-          <p>Press "Load" to load your new user.</p>
-        </div>
-      </div>
-      
       <center class="a-bypass">
         <h1>Start Ribkix OS</h1>
         <p>Select what to boot Ribkix OS in:</p>
@@ -48,6 +41,13 @@
           <li>
             <div class="collapsible-header">Load User</div>
             <div class="collapsible-body" id="load_user_list">
+              <div class="tap-target ribdev-bgcolor" id="load-button-tap-target" data-target="load-user-target">
+                <div class="tap-target-content">
+                  <h5>Load your new user</h5>
+                  <p>Press "Load" to load your new user.</p>
+                </div>
+              </div>
+              
               <script>
                 function load_user(un){
                   window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + un;

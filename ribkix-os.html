@@ -19,6 +19,17 @@
     </header>
     
     <main>
+      <div id="modal-settings-reset" class="modal">
+        <div class="modal-content">
+          <h4>Are you sure?</h4>
+          <p>Are you sure you want to reset your settings?</p>
+        </div>
+        <div class="modal-footer">
+          <a href="javascript:modal_settings_reset_yes();" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+          <a class="modal-close btn ribdev-bgcolor white-fgcolor">Cancel</a>
+        </div>
+      </div>
+      
       <div class="row">
         <ul class="tabs" id="accent-color" style="width:100%;">
           <li class="tab"><a href="#apps" class="white-fgcolor">APPS</a></li>
@@ -39,7 +50,8 @@
             <input id="accent_color_setting" type="text" class="validate" value="#0270d7">
             <label for="accent_color_setting">Accent Color</label>
           </div>
-          <a class="waves-effect waves-light btn-large ribdev-bgcolor" href="javascript:settings_apply();">Apply</a>
+          <a class="waves-effect waves-light btn-large" id="accent-color" href="javascript:settings_apply();">APPLY</a>
+          <a class="waves-effect waves-light btn-large" id="accent-color" href="javascript:settings_reset();">RESET</a>
         </div>
         <div id="desktop" class="tabs-item"></div>
       </div>
@@ -87,12 +99,32 @@
         update_wallpaper();
       }
       
+      function undo_settings(sts){
+        settings[0] = sts[0];
+        settings[1] = sts[1];
+        update_accent();
+        update_wallpaper();
+      }
+      
       function settings_apply(){
+        var old_sts = settings;
         settings[0] = document.getElementById("wallpaper_setting").value;
         settings[1] = document.getElementById("accent_color_setting").value;
         update_accent();
         update_wallpaper();
-        M.toast({html:"Applied settings!"})
+        M.toast({html:'<span>Applied settings!</span><button class="btn-flat toast-action" onclick="undo_settings([' + old_sts + '])">Undo</button>'})
+      }
+      
+      function settings_reset(){
+        var instance = M.Modal.init(document.getElementById("modal-settings-reset"));
+        instance.open();
+      }
+      
+      function modal_settings_reset_yes(){
+        instance.close();
+        document.getElementById("wallpaper_setting").value = "https://i.imgur.com/py0AUXp.jpg";
+        document.getElementById("accent_color_setting").value = "#0270d7";
+        settings_apply();
       }
       
       var url = new URL(window.location.href);

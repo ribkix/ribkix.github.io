@@ -29,20 +29,14 @@
       var password;
       var picture;
       var apps;
+      var settings;
       
-      function load_user(un,pw,pic,a){
+      function load_user(un,pw,pic,a,sts){
         username = un;
         password = pw;
         picture = pic;
         apps = a;
-        
-        // if (apps == []){
-        //   apps = []
-        // }
-      }
-      
-      function done(){
-        window.location.href = "https://ribkix.tk/ribkix-os?user=user-" + username;
+        settings = sts;
       }
       
       var url = new URL(window.location.href);

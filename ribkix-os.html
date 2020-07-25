@@ -37,13 +37,17 @@
         picture = pic;
         apps = a;
         settings = sts;
+        
+        if (sts = []){
+          sts = ["https://i.imgur.com/py0AUXp.jpg"]
+        }
+        
+        document.body.style = "background-image: url(" + sts[0] + ");background-repeat:no-repeat;";
       }
       
       var url = new URL(window.location.href);
       var user = url.searchParams.get("user");
-      eval(localStorage.getItem(user));
-      
-      setInterval(done,Math.floor(Math.random()*10000)+1);
+      eval(localStorage.getItem(user));      
     </script>
   </body>
 </html>

@@ -109,7 +109,7 @@
         settings[1] = document.getElementById("accent_color_setting").value;
         update_accent();
         update_wallpaper();
-        localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.ToString() + "],['" + settings[0] + "'," + settings[1] + "]);");
+        localStorage.setItem("user-" + username,"load_user('" + username + "','" + password + "','" + picture + "',[" + apps.toString() + "],[" + settings.toString() + "]);");
         M.toast({html:"Applied settings!"});
       }
       

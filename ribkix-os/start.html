@@ -38,9 +38,9 @@
         <p>Select what to boot Ribkix OS in:</p>
 
         <ul id="user-collapsible" class="collapsible" style="width:40%;">
-          <li style="height:150px;overflow-y:auto;">
+          <li>
             <div class="collapsible-header">Load User</div>
-            <div class="collapsible-body" id="load_user_list">
+            <div class="collapsible-body" style="height:150px;overflow-y:auto;">
               <script>
                 function load_user(un){
                   window.location.href = "https://ribkix.tk/ribkix-os/boot?user=user-" + un;
@@ -122,9 +122,9 @@
               </script>
             </div>
           </li>
-          <li style="height:150px;overflow-y:auto;">
+          <li>
             <div class="collapsible-header">New User</div>
-            <div class="collapsible-body">
+            <div class="collapsible-body" style="height:150px;overflow-y:auto;">
               <div class="input-field">
                 <input id="username" type="text" class="validate" value="user">
                 <label for="username">Username</label>

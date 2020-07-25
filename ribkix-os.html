@@ -19,20 +19,22 @@
     </header>
     
     <main>
-      <ul class="tabs" style="width:100%;">
+      <ul class="tabs" style="width:33.3%;">
         <li class="tab col s3"><a href="#apps">APPS</a></li>
         <li class="tab col s3"><a href="#settings">SETTINGS</a></li>
         <li class="tab col s3"><a class="active" href="#home">HOME</a></li>
       </ul>
       
-      <div id="apps" class="white-fgcolor">
-        <h1>Apps</h1>
-      </div>
-      <div id="settings" class="white-fgcolor">
-        <h1>Settings</h1>
-      </div>
-      <div id="home" class="white-fgcolor">
-        <h1>Home</h1>
+      <div class="row">
+        <div id="apps" class="white-fgcolor z-depth-5">
+          <h1>Apps</h1>
+        </div>
+        <div id="settings" class="white-fgcolor z-depth-4">
+          <h1>Settings</h1>
+        </div>
+        <div id="home" class="white-fgcolor z-depth-3">
+          <h1>Home</h1>
+        </div>
       </div>
     </main>
     
@@ -77,7 +79,7 @@
       eval(localStorage.getItem(user));
       
       $(document).ready(function(){
-        $('.tabs').tabs();
+        $('.tabs').tabs({swipable:true});
       });
     </script>
   </body>
